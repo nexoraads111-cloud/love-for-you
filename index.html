@@ -78,9 +78,13 @@ button { font: inherit; cursor: pointer; }
   padding: 20px 0 30px;
   flex-direction: column;
   animation: pageIn .55s ease both;
+  pointer-events: none;
 }
 
-.view.active { display: flex; }
+.view.active {
+  display: flex;
+  pointer-events: auto;
+}
 
 .view.menu-view {
   width: min(100% - 24px, 920px);

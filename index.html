@@ -59,6 +59,7 @@ button { font: inherit; cursor: pointer; }
   color: #ff80b0;
   filter: drop-shadow(0 0 8px #ff4e91);
   animation: floatUp linear forwards;
+  pointer-events: none;
 }
 
 @keyframes floatUp {
@@ -132,6 +133,9 @@ button { font: inherit; cursor: pointer; }
 }
 
 .menu-card {
+  display: block;
+  width: 100%;
+  color: inherit;
   background: #ffffff0e;
   border: 1px solid #ffffff28;
   border-radius: 28px;
@@ -142,6 +146,7 @@ button { font: inherit; cursor: pointer; }
     0 0 40px #ff4d9420;
   backdrop-filter: blur(14px);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  cursor: pointer;
 }
 
 .menu-card:hover {
@@ -227,9 +232,10 @@ button { font: inherit; cursor: pointer; }
   background: linear-gradient(100deg, #ffb2d0, #ff6b9d);
   box-shadow: 0 5px 24px #ff6b9d40;
   transition: transform .2s ease, box-shadow .2s ease;
+  pointer-events: none;
 }
 
-.open-btn:hover {
+.menu-card:hover .open-btn {
   transform: scale(1.04);
   box-shadow: 0 8px 28px #ff6b9d55;
 }
@@ -565,25 +571,25 @@ h2 {
   </div>
 
   <div class="menu-grid">
-    <article class="menu-card">
+    <button class="menu-card" type="button" data-open="story2m" aria-label="Открыть поздравление на 2 месяца">
       <h2 class="menu-card-title">2 месяца вместе 💕</h2>
       <div class="preview-window">
         <div class="preview-heart">💗</div>
         <p class="preview-label">С нашими<br>2 месяцами!</p>
         <p class="preview-note">Наша первая история, фото и письмо с утра…</p>
       </div>
-      <button class="open-btn" type="button" data-open="story2m">Открыть →</button>
-    </article>
+      <span class="open-btn">Открыть →</span>
+    </button>
 
-    <article class="menu-card">
+    <button class="menu-card" type="button" data-open="story3m" aria-label="Открыть поздравление на 3 месяца">
       <h2 class="menu-card-title">3 месяца вместе 💖</h2>
       <div class="preview-window">
         <div class="preview-heart">💖</div>
         <p class="preview-label">С нашими<br>3 месяцами!</p>
         <p class="preview-note">Самый сложный месяц — и самое важное письмо…</p>
       </div>
-      <button class="open-btn" type="button" data-open="story3m">Открыть →</button>
-    </article>
+      <span class="open-btn">Открыть →</span>
+    </button>
   </div>
 
   <footer class="menu-footer">СДЕЛАНО С ЛЮБОВЬЮ ♡ ТОЛЬКО ДЛЯ ТЕБЯ</footer>
@@ -1061,6 +1067,7 @@ for (let i = 0; i < 9; i++) {
 setInterval(createHeart, 1100);
 
 showView('menu');
+window.__loveApp = { showView, playMusic, pauseAllMusic, stories };
 </script>
 </body>
 </html>
